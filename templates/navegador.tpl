@@ -29,9 +29,9 @@
           <img class="third-slide" src="imagen/pelota.jpg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Eres parte del Staff?.</h1>
-              <p>Entonces inicia aqui</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Adminstrador</a></p>
+              <h1>Queres ver los partidos?.</h1>
+              <p>Entonces has click aqui</p>
+              <p><a class="btn btn-lg btn-primary partidos" href="#" role="button">Partidos</a></p>
             </div>
           </div>
         </div>

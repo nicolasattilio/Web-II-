@@ -24,9 +24,6 @@ class partidoController{
   }
 
 public function insertPartido(){
-  //echo "inserta";
-  //print_r($_POST['id']);
-
     if(isset($_POST['id_local']) && isset($_POST['id_visitante']) && !empty($_POST['fecha'])){
       $fecha = $_POST['fecha'];
       $fecha = date("Y-m-d h:i:s",strtotime($fecha));
@@ -57,17 +54,17 @@ public function insertPartido(){
   }
 
   public function editarPartido(){
+    $id=$_GET['id'];
+    $partido = $this->partidoModel->getPartido($id);
     $teams = $this->modelTeams->getTeams();
-    $this->partidoView->mostrar_ins_partido($teams);
+    $this->partidoView->mostrar_edt_partido($teams,$partido);
   }
 
   public function updatePartido(){
-    echo "actualiza";
-    print_r($_POST['id']);
-    /*if(isset($_POST['id_local']) && isset($_POST['id_visitante']) && !empty($_POST['fecha'])){
+  if(isset($_POST['id_local']) && isset($_POST['id_visitante']) && !empty($_POST['fecha'])){
       $fecha = $_POST['fecha'];
       $fecha = date("Y-m-d h:i:s",strtotime($fecha));
-      $partido = array('id_partido'=>$_POST['id_partido'],'id_local'=>$_POST["id_local"],'id_visitante'=>$_POST["id_visitante"],'fecha'=>$fecha);
+      $partido = array('id_partido'=>$_POST['id'],'id_local'=>$_POST["id_local"],'id_visitante'=>$_POST["id_visitante"],'fecha'=>$fecha);
       $partidos = $this->partidoModel->updatePartido($partido);
       $partidos = $this->partidoModel->getPartidos();
       $this->partidoView->mostrar($partidos);
@@ -76,7 +73,7 @@ public function insertPartido(){
   $teams = $this->modelTeams->getTeams();
   $this->partidoView->mostrar_ins_partido($teams);
     }
-*/
+
 }
 
 }

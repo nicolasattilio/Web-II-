@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-17 20:10:53
+/* Smarty version 3.1.30, created on 2016-10-27 21:12:59
   from "C:\xampp\htdocs\Web II\templates\navegador.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5805142dc95f16_99695629',
+  'unifunc' => 'content_581251bb724f81_88959542',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e45049cf8c06c5860fa50b0579d1198a636cb56c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Web II\\templates\\navegador.tpl',
-      1 => 1476727836,
+      1 => 1477595504,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5805142dc95f16_99695629 (Smarty_Internal_Template $_smarty_tpl) {
+function content_581251bb724f81_88959542 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -53,9 +53,9 @@ function content_5805142dc95f16_99695629 (Smarty_Internal_Template $_smarty_tpl)
           <img class="third-slide" src="imagen/pelota.jpg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Eres parte del Staff?.</h1>
-              <p>Entonces inicia aqui</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Adminstrador</a></p>
+              <h1>Queres ver los partidos?.</h1>
+              <p>Entonces has click aqui</p>
+              <p><a class="btn btn-lg btn-primary partidos" href="#" role="button">Partidos</a></p>
             </div>
           </div>
         </div>

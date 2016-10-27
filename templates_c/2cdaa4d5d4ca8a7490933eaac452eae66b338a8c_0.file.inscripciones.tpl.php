@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-25 23:09:47
+/* Smarty version 3.1.30, created on 2016-10-27 23:03:45
   from "C:\xampp\htdocs\Web II\templates\inscripciones.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_580fca1bd89fa2_45996745',
+  'unifunc' => 'content_58126bb1da48c5_36370702',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2cdaa4d5d4ca8a7490933eaac452eae66b338a8c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Web II\\templates\\inscripciones.tpl',
-      1 => 1477429751,
+      1 => 1477602093,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_580fca1bd89fa2_45996745 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58126bb1da48c5_36370702 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="row">
   <div class="container">
@@ -49,7 +49,7 @@ echo $_smarty_tpl->tpl_vars['team']->value['jugador_5'];
       <label>Escudo</label><input class="form-control" value="<?php if (isset($_smarty_tpl->tpl_vars['team']->value)) {
 echo $_smarty_tpl->tpl_vars['team']->value['squad'];
 }?>" type="file" name="escudo"></br>
-      <input id="cargarDatos" class="btn btn-success" type="submit" data-teamid="<?php if (isset($_smarty_tpl->tpl_vars['team']->value)) {
+      <input id="cargarEquipo" class="btn btn-success" type="submit" data-teamid="<?php if (isset($_smarty_tpl->tpl_vars['team']->value)) {
 echo $_smarty_tpl->tpl_vars['team']->value['id'];
 }?>" value="Inscribirse">
     </form>

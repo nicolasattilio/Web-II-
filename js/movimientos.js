@@ -25,10 +25,9 @@ function actualizarEventos(){
       });
       $("#cargarPartido").on("click",function () {
         var formData = new FormData($("#formulario")[0]);
-        var partidoId = $(this).data("partidoid");
+        var partidoid = $(this).data("partidoid");
             $.ajax({
-              //url:"index.php?mode=updatePartido",
-              url:"index.php?mode=" + ((partidoId=='')? "insertPartido":"updatePartido"),
+              url:"index.php?mode=" + ((partidoid=='')? "insertPartido":"updatePartido"),
               data: formData,
               processData: false,
               contentType: false,
@@ -70,19 +69,7 @@ function actualizarEventos(){
             event.preventDefault();
             return false;
         });
-        $(".partidos").on("click",function () {
-              $.ajax({
-                url:"index.php?mode=mostrarPartido",
-                dataType: 'HTML',
-                method: 'GET',
-                  success: function(data){
-                    $('.pantalla').html(data);
-                    actualizarEventos();
-              }
-              });
-              event.preventDefault();
-              return false;
-          });
+
 
           $(".editPartido").on("click",function(){
             var partidoid = $(this).data("partidoid");
@@ -150,6 +137,20 @@ function actualizarEventos(){
             event.preventDefault();
             return false;
           });
+
+          $(".partidos").on("click",function () {
+                $.ajax({
+                  url:"index.php?mode=mostrarPartido",
+                  dataType: 'HTML',
+                  method: 'GET',
+                    success: function(data){
+                      $('.pantalla').html(data);
+                      actualizarEventos();
+                }
+                });
+                event.preventDefault();
+                return false;
+            });
 
           $(".home").on("click",function(){
             $.ajax({

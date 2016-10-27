@@ -21,6 +21,11 @@ public function mostrar_ins_partido($teams){
   $this->smarty->assign('teams',$teams);
   $this->smarty->display('templates/inscripcionPartido.tpl');
 }
+public function mostrar_edt_partido($teams,$partido){
+  $this->smarty->assign('partido',$partido);
+  $this->smarty->assign('teams',$teams);
+  $this->smarty->display('templates/inscripcionPartido.tpl');
+}
 
 }
 ?>

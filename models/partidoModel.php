@@ -36,7 +36,7 @@ class partidoModel{
   }
 
 function updatePartido($partido){
-  $edit =$this->db->prepare("UPDATE `partido` SET `id_local` = '?', `id_visitante` = '?', `fecha` = '?' WHERE `partido`.`id_partido` = '?'");
+  $edit =$this->db->prepare("UPDATE `partido` SET `id_local` = ?, `id_visitante` = ?, `fecha` = ? WHERE `partido`.`id_partido` = ?");
   $edit->execute(array($partido["id_local"],$partido["id_visitante"],$partido["fecha"],$partido["id_partido"]));
   }
 
