@@ -1,0 +1,12 @@
+.img-circle{
+  width: 50px;
+  heitgh: 50px;
+  border-style: solid;
+}
+
+
+.carousel {
+  position: center
+  height: 500px;
+  margin-bottom: 60px;
+}
