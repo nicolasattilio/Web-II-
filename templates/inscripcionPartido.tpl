@@ -37,7 +37,7 @@
         </div>
     </form>
   </div>
-  <div <div class="container">
+<div class="container">
     <br>
     <input id="cargarPartido" class="btn btn-success" type="submit" data-partidoid="{if isset($partido)}{$partido['id']}{/if}" value="Inscribirse">
   </div>
