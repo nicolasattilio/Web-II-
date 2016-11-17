@@ -1,11 +1,9 @@
 $(document).ready(function () {
 function actualizarEventos(){
 
-  $(function () {
-    $('#datetimepicker1').datetimepicker({
+  $('#datetimepicker1').datetimepicker({
       daysOfWeekDisabled: [0, 6]
     });
-  });
 
   $("#cargarEquipo").on("click",function () {
     var formData = new FormData($("#formulario")[0]);
@@ -23,6 +21,22 @@ function actualizarEventos(){
           event.preventDefault();
           return false;
       });
+
+      $("#selector_equipo").change(function(){
+        var idEquipo=$(this).val();
+        $.ajax({
+          url:"index.php?mode=mostrarPartido&id="+idEquipo,
+          dataType: 'HTML',
+          method: 'GET',
+            success: function(data){
+              $('.pantalla').html(data);
+              actualizarEventos();
+        }
+        });
+        event.preventDefault();
+        return false;
+        });
+
       $("#cargarPartido").on("click",function () {
         var formData = new FormData($("#formulario")[0]);
         var partidoid = $(this).data("partidoid");

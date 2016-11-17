@@ -8,8 +8,9 @@
     $this->smarty = new Smarty;
 }
 
-public function mostrar($partidos){
+public function mostrar($partidos,$teams){
   $this->smarty->assign('partidos',$partidos);
+  $this->smarty->assign('teams',$teams);
   $this->smarty->display('templates/partidos.tpl');
 }
 public function mostrar_par_admin($partidos){
