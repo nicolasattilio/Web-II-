@@ -1,10 +1,5 @@
 $(document).ready(function () {
 function actualizarEventos(){
-
-  $('#datetimepicker1').datetimepicker({
-      daysOfWeekDisabled: [0, 6]
-    });
-
   $("#cargarEquipo").on("click",function () {
     var formData = new FormData($("#formulario")[0]);
     var teamId = $(this).data("teamid");

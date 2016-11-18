@@ -40,10 +40,16 @@ public function insertPartido(){
 
 
   public function mostrarPartidos(){
-    if(isset($_GET['id'])) echo $_GET['id'];
+    if(isset($_GET['id'])){
+    $id= $_GET['id'];
+    $partidos = $this->partidoModel->getPartidosPorEquipo($id);
+    $teams = $this->modelTeams->getTeams();
+    $this->partidoView->mostrar($partidos,$teams);
+  }else{
     $partidos = $this->partidoModel->getPartidos();
     $teams = $this->modelTeams->getTeams();
     $this->partidoView->mostrar($partidos,$teams);
+    }
   }
 
   public function borrarPartido(){

@@ -23,18 +23,15 @@
         {/foreach}
       </select><br>
       <br><label class="label label-default">Dia</label>
-        <div class="row">
-          <div class='col-sm-6'>
-            <div class="form-group">
-              <div class='input-group date' id='datetimepicker1'>
-               <input type='text' class="form-control" name='fecha' value="{$partido['fecha']}"/>
-                   <span class="input-group-addon">
-                       <span class="glyphicon glyphicon-calendar"></span>
-                   </span>
-                </div>
-             </div>
-           </div>
+      <div class="well">
+        <div id="datetimepicker1" class="input-append date">
+          <input data-format="dd/MM/yyyy hh:mm:ss" type="text"></input>
+          <span class="add-on">
+            <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+            </i>
+          </span>
         </div>
+      </div>
     </form>
   </div>
 <div class="container">
