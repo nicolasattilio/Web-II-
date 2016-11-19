@@ -1,15 +1,7 @@
 <?php
+include_once('models/modelDB.php');
 
-class teamsModel{
-  private $db;
-
-  function __construct(){
-<<<<<<< HEAD
-    $this->db = new PDO('mysql:host=localhost;dbname=futapp;charset=utf8', 'root', '');
-=======
-    $this->db = new PDO('mysql:host=localhost;dbname=futapp;charset=utf8', 'root', 'root');
->>>>>>> parent of c8fbd8f... añadiendo db
-  }
+class teamsModel extends modelDB{
 
   function getTeams()  {
     $select = $this->db->prepare("SELECT * FROM team ORDER BY equipo ASC");
