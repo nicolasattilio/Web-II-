@@ -4,7 +4,11 @@ class teamsModel{
   private $db;
 
   function __construct(){
+<<<<<<< HEAD
     $this->db = new PDO('mysql:host=localhost;dbname=futapp;charset=utf8', 'root', '');
+=======
+    $this->db = new PDO('mysql:host=localhost;dbname=futapp;charset=utf8', 'root', 'root');
+>>>>>>> parent of c8fbd8f... añadiendo db
   }
 
   function getTeams()  {

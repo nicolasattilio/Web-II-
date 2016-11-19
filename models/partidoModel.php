@@ -5,7 +5,11 @@ class partidoModel{
   private $teamsModel;
 
   function __construct(){
+<<<<<<< HEAD
     $this->db = new PDO('mysql:host=localhost;dbname=futapp;charset=utf8', 'root', '');
+=======
+    $this->db = new PDO('mysql:host=localhost;dbname=futapp;charset=utf8', 'root', 'root');
+>>>>>>> parent of c8fbd8f... añadiendo db
     $this->teamsModel = new teamsModel();
   }
 
@@ -14,10 +18,29 @@ class partidoModel{
     $select->execute();
     $partidos = $select->fetchAll(PDO::FETCH_ASSOC);
     foreach ($partidos as $key => $partido) {
+<<<<<<< HEAD
+=======
       $partido["local"]=$this->teamsModel->getTeam($partido["id_local"]);
       $partido["visitante"]=$this->teamsModel->getTeam($partido["id_visitante"]);
       $partidos[$key]=$partido;
     }
+  return $partidos;
+  }
+
+  function getPartidosPorEquipo($id){
+    $equipo=$this->db->prepare("SELECT * FROM partido WHERE id_local=? OR id_visitante=?");
+    $equipo->execute(array($id,$id));
+    $partidos = $equipo->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($partidos as $key => $partido) {
+>>>>>>> parent of c8fbd8f... añadiendo db
+      $partido["local"]=$this->teamsModel->getTeam($partido["id_local"]);
+      $partido["visitante"]=$this->teamsModel->getTeam($partido["id_visitante"]);
+      $partidos[$key]=$partido;
+    }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> parent of c8fbd8f... añadiendo db
   return $partidos;
   }
 
