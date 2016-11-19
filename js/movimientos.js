@@ -1,10 +1,5 @@
 $(document).ready(function () {
 function actualizarEventos(){
-
-  $('#datetimepicker1').datetimepicker({
-      daysOfWeekDisabled: [0, 6]
-    });
-
   $("#cargarEquipo").on("click",function () {
     var formData = new FormData($("#formulario")[0]);
     var teamId = $(this).data("teamid");
@@ -96,6 +91,8 @@ function actualizarEventos(){
                 actualizarEventos();
               }
             });
+            event.preventDefault();
+            return false;
           });
 
         $(".editTeam").on("click",function(){
@@ -109,6 +106,8 @@ function actualizarEventos(){
               actualizarEventos();
             }
           });
+          event.preventDefault();
+          return false;
         });
 
         $(".deleteTeam").on("click",function(){
@@ -122,6 +121,8 @@ function actualizarEventos(){
               actualizarEventos();
             }
           });
+          event.preventDefault();
+          return false;
         });
 
         $(".deletePartido").on("click",function(){
@@ -135,6 +136,8 @@ function actualizarEventos(){
               actualizarEventos();
             }
           });
+          event.preventDefault();
+          return false;
         });
 
         $(".equipos").on("click",function () {
@@ -176,6 +179,8 @@ function actualizarEventos(){
                 actualizarEventos();
               }
             });
+            event.preventDefault();
+            return false;
           });
 
           $(".adminEquipos").on("click",function () {
@@ -217,5 +222,7 @@ $.ajax({
     actualizarEventos();
   }
 });
+event.preventDefault();
+return false;
 
 });

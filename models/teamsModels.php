@@ -1,12 +1,7 @@
 <?php
-
-class teamsModel{
-  private $db;
-
-  function __construct(){
-    $this->db = new PDO('mysql:host=localhost;dbname=futapp;charset=utf8', 'root', '');
-  }
-
+include_once("models/modeldb.php");
+class teamsModel extends modeldb{
+  
   function getTeams()  {
     $select = $this->db->prepare("SELECT * FROM team ORDER BY equipo ASC");
     $select->execute();
@@ -27,7 +22,7 @@ class teamsModel{
     $delete->execute(array($team["id"]));
   }
 
-  function getTeam($id)  {
+  function getTeam($id){
     $select = $this->db->prepare("SELECT * FROM `team` WHERE `team`.`id` = ?");
     $select->execute(array($id));
     $equipo = $select->fetch(PDO::FETCH_ASSOC);
