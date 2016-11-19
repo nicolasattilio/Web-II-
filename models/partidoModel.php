@@ -1,12 +1,10 @@
 <?php
+include_once('models/modelDB.php');
 require_once('models/teamsModels.php');
-class partidoModel{
-  private $db;
-  private $teamsModel;
-
+class partidoModel extends modelDB{
+  
   function __construct(){
-    $this->db = new PDO('mysql:host=localhost;dbname=futapp;charset=utf8', 'root', '');
-    $this->teamsModel = new teamsModel();
+    parent::__construct();
   }
 
   function getPartidos()  {
