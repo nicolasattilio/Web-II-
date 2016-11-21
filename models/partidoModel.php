@@ -1,9 +1,11 @@
 <?php
 include_once('models/modelDB.php');
-require_once('models/teamsModels.php');
+
 class partidoModel extends modelDB{
-  
+  private $modelTeams;
+
   function __construct(){
+    $this->modelTeams = new teamsModel();
     parent::__construct();
   }
 
@@ -12,12 +14,26 @@ class partidoModel extends modelDB{
     $select->execute();
     $partidos = $select->fetchAll(PDO::FETCH_ASSOC);
     foreach ($partidos as $key => $partido) {
-      $partido["local"]=$this->teamsModel->getTeam($partido["id_local"]);
-      $partido["visitante"]=$this->teamsModel->getTeam($partido["id_visitante"]);
+      $partido["local"]=$this->modelTeams->getTeam($partido["id_local"]);
+      $partido["visitante"]=$this->modelTeams->getTeam($partido["id_visitante"]);
       $partidos[$key]=$partido;
     }
   return $partidos;
   }
+
+  function getPartidosPorEquipo($id){
+    $equipo=$this->db->prepare("SELECT * FROM partido WHERE id_local=? OR id_visitante=?");
+    $equipo->execute(array($id,$id));
+    $partidos = $equipo->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($partidos as $key => $partido) {
+      $partido["local"]=$this->modelTeams->getTeam($partido["id_local"]);
+      $partido["visitante"]=$this->modelTeams->getTeam($partido["id_visitante"]);
+      $partidos[$key]=$partido;
+    }
+
+  return $partidos;
+}
+
 
  function insertPartido($partido){
     $insert = $this->db->prepare("INSERT INTO `partido` (`id_local`, `id_visitante`, `fecha`) VALUES (?,?,?)");

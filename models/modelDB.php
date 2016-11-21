@@ -2,6 +2,9 @@
 $path = "db/";
 if(strpos(pathinfo($_SERVER["SCRIPT_FILENAME"])["dirname"], 'api')) $path = "../" . $path;
 include_once $path .'configDB.php';
+
+
+
 abstract class modelDB{
   protected $db;
   function __construct() {
