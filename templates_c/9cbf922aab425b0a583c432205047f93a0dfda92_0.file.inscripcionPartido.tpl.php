@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-27 22:51:14
-  from "C:\xampp\htdocs\Web II\templates\inscripcionPartido.tpl" */
+/* Smarty version 3.1.30, created on 2016-11-21 15:17:09
+  from "C:\xampp\htdocs\Web-II-\templates\inscripcionPartido.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_581268c22446f1_35185752',
+  'unifunc' => 'content_583301e522f8b0_65861016',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '44422c4172cf02e72d83e0a0e77d934769b00160' => 
+    '9cbf922aab425b0a583c432205047f93a0dfda92' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\Web II\\templates\\inscripcionPartido.tpl',
-      1 => 1477601469,
+      0 => 'C:\\xampp\\htdocs\\Web-II-\\templates\\inscripcionPartido.tpl',
+      1 => 1479736677,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_581268c22446f1_35185752 (Smarty_Internal_Template $_smarty_tpl) {
+function content_583301e522f8b0_65861016 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="row">
   <div class="container">
@@ -90,7 +90,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
         </div>
     </form>
   </div>
-  <div <div class="container">
+<div class="container">
     <br>
     <input id="cargarPartido" class="btn btn-success" type="submit" data-partidoid="<?php if (isset($_smarty_tpl->tpl_vars['partido']->value)) {
 echo $_smarty_tpl->tpl_vars['partido']->value['id'];

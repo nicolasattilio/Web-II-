@@ -26,7 +26,7 @@
   <td>VS</td>
   <td>{$partido['visitante']['equipo']} <img src="{$partido['visitante']['squad']}" class="img-circle" style="width: 40px;"></td>
   <td>{$partido['fecha']}PM</td>
-  <td><a class="verImagenesComentarios" href="">Ver mas..</a></td>
+  <td><button type="button" class="verImagenesComentarios btn btn-success" data-partidoid="{$partido['id_partido']}">Ver mas..</button></td>
 </tr>
 {/foreach}
 </table>

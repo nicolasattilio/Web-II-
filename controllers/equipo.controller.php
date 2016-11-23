@@ -1,11 +1,12 @@
 <?php
 require_once('models/teamsModels.php');
 require_once('models/partidoModel.php');
+require_once('view/equipoView.php');
 
 class teamsController{
 
   private $modelTeams;
-  private $viewTeams;
+  private $teamView;
 
   public function __construct(){
     $this->modelTeams = new teamsModel();
