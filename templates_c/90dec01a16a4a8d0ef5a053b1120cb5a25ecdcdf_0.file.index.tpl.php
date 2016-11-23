@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-27 21:01:36
-  from "C:\xampp\htdocs\Web II\templates\index.tpl" */
+/* Smarty version 3.1.30, created on 2016-11-22 23:18:33
+  from "C:\xampp\htdocs\projecto\Web2\templates\index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58124f100977f8_73469477',
+  'unifunc' => 'content_5834c439190e90_30386829',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'e2b9c0dbde90929e809bd05353c3aa7ac7520a92' => 
+    '90dec01a16a4a8d0ef5a053b1120cb5a25ecdcdf' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\Web II\\templates\\index.tpl',
-      1 => 1477580660,
+      0 => 'C:\\xampp\\htdocs\\projecto\\Web2\\templates\\index.tpl',
+      1 => 1479853081,
       2 => 'file',
     ),
   ),
@@ -20,11 +20,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58124f100977f8_73469477 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5834c439190e90_30386829 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
   <head>
+    <base href="//localhost/proyecto/Web2/" />
     <meta charset="utf-8">
     <link href="styles/css/estilo.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">

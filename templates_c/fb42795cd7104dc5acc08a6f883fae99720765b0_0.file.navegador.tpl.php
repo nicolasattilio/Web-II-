@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-27 21:12:59
-  from "C:\xampp\htdocs\Web II\templates\navegador.tpl" */
+/* Smarty version 3.1.30, created on 2016-11-22 23:09:21
+  from "C:\xampp\htdocs\projecto\Web2\templates\navegador.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_581251bb724f81_88959542',
+  'unifunc' => 'content_5834c2114d1bc3_66458100',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'e45049cf8c06c5860fa50b0579d1198a636cb56c' => 
+    'fb42795cd7104dc5acc08a6f883fae99720765b0' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\Web II\\templates\\navegador.tpl',
-      1 => 1477595504,
+      0 => 'C:\\xampp\\htdocs\\projecto\\Web2\\templates\\navegador.tpl',
+      1 => 1479250684,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_581251bb724f81_88959542 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5834c2114d1bc3_66458100 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">

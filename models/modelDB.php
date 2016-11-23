@@ -1,7 +1,7 @@
 <?php
 $path = "db/";
 if(strpos(pathinfo($_SERVER["SCRIPT_FILENAME"])["dirname"], 'api')) $path = "../" . $path;
-include_once $path .'configDB.php';
+include_once $path .'config.php';
 
 
 

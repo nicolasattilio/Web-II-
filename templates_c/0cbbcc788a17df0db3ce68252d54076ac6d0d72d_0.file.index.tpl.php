@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-26 20:04:42
-  from "C:\xampp\htdocs\Web II Nico\templates\index.tpl" */
+/* Smarty version 3.1.30, created on 2016-11-22 23:07:12
+  from "C:\xampp\htdocs\projecto\Web-II-\templates\index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5811368a55ba09_81574180',
+  'unifunc' => 'content_5834c190577b36_40416744',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '1a5d8dd531f3fb10cbecba3e897eff91a0a3ca34' => 
+    '0cbbcc788a17df0db3ce68252d54076ac6d0d72d' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\Web II Nico\\templates\\index.tpl',
-      1 => 1477523065,
+      0 => 'C:\\xampp\\htdocs\\projecto\\Web-II-\\templates\\index.tpl',
+      1 => 1479250684,
       2 => 'file',
     ),
   ),
@@ -20,14 +20,15 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5811368a55ba09_81574180 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5834c190577b36_40416744 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <link href="styles/css/estilo.css">
-    <link href="styles/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <title>FutApp</title>
   </head>
   <body>
@@ -62,6 +63,12 @@ function content_5811368a55ba09_81574180 (Smarty_Internal_Template $_smarty_tpl)
 >
   <?php echo '<script'; ?>
  src="styles/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="http://momentjs.com/downloads/moment.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
  src="js/movimientos.js"> <?php echo '</script'; ?>

@@ -1,13 +1,18 @@
 <?php
+
 define("SQLFILE", "futapp.sql");
+
 include '../libs/Smarty.class.php';
 $smarty = new Smarty();
+
 if(isset($_POST["host"]) && isset($_POST["user"]) && isset($_POST["db-pw"]) && isset($_POST["dbname"])){
+
   try {
       $conexionValida = new PDO('mysql:host='.$_POST["host"].';charset=utf8', $_POST["user"], $_POST["db-pw"]);
   } catch (PDOException $e) {
       $conexionValida = false;
   }
+
   if($conexionValida){
     $configFile = "config.php";
     $archivo = file($configFile);
@@ -16,12 +21,15 @@ if(isset($_POST["host"]) && isset($_POST["user"]) && isset($_POST["db-pw"]) && i
     $archivo[4] = changeValue($archivo[4], $_POST["db-pw"]);
     $archivo[5] = changeValue($archivo[5], $_POST["dbname"]);
     file_put_contents($configFile, $archivo);
+
     $smarty->assign("asignados", true);
     $querys = getSQL(SQLFILE);
     $dbname = $_POST["dbname"];
+
     if(isset($_POST['vaciar'])) $conexionValida->exec('DROP DATABASE IF EXISTS '.$dbname);
     $conexionValida->exec('CREATE DATABASE IF NOT EXISTS '.$dbname);
     $conexionValida->exec('USE '.$dbname);
+
     if(isset($_POST['add'])){
       $i = 0;
       while ($i < count($querys) && strlen($conexionValida->errorInfo()[2]) == 0) {
@@ -31,10 +39,13 @@ if(isset($_POST["host"]) && isset($_POST["user"]) && isset($_POST["db-pw"]) && i
       if($i == count($querys)) $smarty->assign("db_correcto", 1);
       else $smarty->assign("db_correcto", $conexionValida->errorInfo()[2]);
     }
+
   } else $smarty->assign("asignados", false);
-  $smarty->display("../templates/errorDB.tpl");
+  $smarty->display("errores.tpl");
+
 }
-else $smarty->display("../templates/instalarDB.tpl");
+else $smarty->display("instalar.tpl");
+
 function getSQL($nombre){
   $querys = fopen($nombre, "r+");
   $sql = "";
@@ -48,6 +59,7 @@ function getSQL($nombre){
   unset($querys[count($querys)-1]);
   return $querys;
 }
+
 function changeValue($variable, $value){
   $start = '';
   $end = '");';
@@ -59,4 +71,5 @@ function changeValue($variable, $value){
   $newVar = $start.$value.$end.PHP_EOL;
   return $newVar;
 }
+
  ?>
