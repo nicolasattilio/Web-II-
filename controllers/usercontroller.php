@@ -1,66 +1,86 @@
 <?php
-require_once('view/userView.php');
-require_once('models/userModel.php');
-require_once('models/partidoModel.php');
+include_once (dirname(__DIR__). "/view/userView.php");
+include_once (dirname(__DIR__). "/models/userModel.php");
+
+class UserController
+{
+  private $userView;
+  private $userModel;
+  function __construct()
+  {
+    $this->userModel= new userModel();
+    $this->userView = new userView();
+  }
 
 
-class userController{
-  private $partidoModel;
-  private $modelUser;
-  private $viewUser;
-
-  public function __construct(){
-    $this->viewUser = new userView();
-    $this->modelUser = new userModel();
-    $this->partidoModel = new partidoModel();
-}
-public function home(){
-    $this->viewUser->home();
-}
-
-public function mostrarhome(){
-    $this->viewUser->mostrar_home();
-}
-
-public function mostrarformulario(){
-    $this->viewUser->mostrar_inscripcion();
-}
-function getImagenesVerificadas($imagenes){
-    $imagenesVerificadas = [];
-    for ($i=0; $i < count($imagenes['size']); $i++) {
-      if($imagenes['size'][$i]>0 && ($imagenes['type'][$i]=="image/jpeg" || $imagenes['type'][$i]=="image/png")){
-        $imagen_aux = [];
-        $imagen_aux['tmp_name']=$imagenes['tmp_name'][$i];
-        $imagen_aux['name']=$imagenes['name'][$i];
-        $imagenesVerificadas[]=$imagen_aux;
+  public function login(){
+    if(!isset($_POST['usuario']) && !isset($_POST["password"]))
+    $this->userView->mostrar([]);
+    else {
+      $user = $_POST['usuario'];
+      $pass = $_POST['password'];
+      $hash = $this->userModel->getUser($user)['pass'];
+      echo $user;
+      echo $pass;
+      echo $hash;
+    if(password_verify($pass,$hash))  {
+        session_start();
+        $_SESSION['USER'] = $user;
+        header("Location: index.php");
+        die();
+      }
+      else
+      {
+        $error = "User pass error";
+        echo($error);
+      }
+     }
+  }
+  public function checkRol ($rol) {
+    session_start();
+    if(!isset($_SESSION['USER']) || $rol != $this->userModel->getRol($_SESSION['USER'])){
+        header("Location: index.php");
+        die();
+    }
+  }
+  public function checkLogin(){
+    session_start();
+    if(!isset($_SESSION['USER'])){
+      return false;
+    }
+    return true;
+  }
+  public function getUser () {
+    return $this->userModel->getUser($_SESSION['USER']);
+  }
+  public function getRol(){
+    session_start();
+    $rol=$this->userModel->getRol($_SESSION['USER']);
+    return $rol;
+  }
+  public function logout(){
+    session_start();
+    session_destroy();
+    header("Location: index.php");
+    die();
+  }
+  public function mostrarRegistro () {
+      $this->userView->mostrarRegistro();
+  }
+  public function nuevoUsuario () {
+    if(isset($_POST['email'])) {
+      if(!$this->userModel->getUser($_POST['email'])) {
+        $nuevoUsuario = array();
+        $nuevoUsuario['nombre'] = $_POST['nombreUsuario'];
+        $nuevoUsuario['email'] = $_POST['email'];
+        $nuevoUsuario['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $this->userModel->crearUsuario($nuevoUsuario);
+        $this->userView->usuarioRegistrado($nuevoUsuario['nombre']);
+      }
+      else {
+        echo "Usuario ya existe";
       }
     }
-    return $imagenesVerificadas;
-  }
-
-
-public function uploadImagen(){
-  $id=$_POST['id'];
-  $imagenes = $_FILES['picture'];
-    if (isset($imagenes)){
-    $imagenesVerificadas=$this->getImagenesVerificadas($imagenes);
-    $this->modelUser->cargarimagen($id,$imagenesVerificadas);
-    $imagenes=$this->modelUser->verImagenes($id);
-    $this->viewUser->mostrar_imagenes_comentarios($id,$imagenes);
-  }else{
-    $imagenes=$this->modelUser->verImagenes($id);
-    $this->viewUser->mostrar_imagenes_comentarios($id,$imagenes);
   }
 }
-
-public function verImagenesYComentarios(){
-  $id=$_GET['id'];
-  $imagenes=$this->modelUser->verImagenes($id);
-  $partido = $this->partidoModel->getPartido($id);
-  $this->viewUser->mostrar_imagenes_comentarios($partido,$imagenes);
-
-}
-}
-
-
 ?>

@@ -1,33 +1,44 @@
 <?php
+require('controllers/usercontroller.php');
 require('controllers/partidocontroller.php');
-require('controllers/userController.php');
+require('controllers/futappController.php');
 require('controllers/equipo.controller.php');
 require_once('controllers/config.php');
 
+$userController = new userController();
 $controllerTeams = new teamsController();
 $controllerpartido = new partidoController();
-$userController = new userController();
+$futappController = new futappController($userController);
 
 switch (isset($_GET[config::$mode]) ? $_GET[config::$mode] : config::$mode_default) {
 
     case config::$mode_home:
-      $userController->mostrarhome();
+      $futappController->mostrarhome();
     break;
 
     case config::$mode:
-      $userController->mostrarhome();
+      $futappController->mostrarhome();
     break;
 
+    case config::$mode_ingresar:
+      $userController->login();
+    break;
+
+    case config::$mode_ingresar:
+      $userController->logout();
+    break;
+
+
     case config::$mode_mostrarFormulario:
-      $userController->mostrarformulario();
+      $futappController->mostrarformulario();
     break;
 
     case config::$mode_comentariosEImagenes:
-      $userController->verImagenesYComentarios();
+      $futappController->verImagenesYComentarios();
     break;
 
     case config::$mode_imagen:
-      $userController->uploadImagen();
+      $futappController->uploadImagen();
     break;
 
     //----<Datos Equipo>-----
@@ -89,7 +100,7 @@ switch (isset($_GET[config::$mode]) ? $_GET[config::$mode] : config::$mode_defau
 
 
     default:
-      $userController->home();
+      $futappController->home();
     break;
 }
 

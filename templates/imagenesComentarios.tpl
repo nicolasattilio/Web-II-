@@ -12,9 +12,11 @@
     <a href="{$imagen['picture']}" class="thumbnail">
       <img src="{$imagen['picture']}"/>
     </a>
+    <button type="button" class="borrarImagen btn btn-warning" data-imagenid="{$imagen['id_imagen']}">Borrar Imagen</button></td>
   </div>
-  <button type="button" class="borrarImagen btn btn-warning" data-imagenid="{$imagen['id_imagen']}">Borrar Imagen</button></td>
   {/foreach}
   </div>
   <h2>Comentarios:</h2>
+  <div class="comentarios row">
+  </div>
 </div>

@@ -1,6 +1,8 @@
 <?php
 require_once 'api.php';
 require_once ('../models/comentariosModel.php');
+
+
 class ComentariosApi extends Api {
   private $model;
   public function __construct($request)
@@ -16,7 +18,7 @@ class ComentariosApi extends Api {
             $error['Error'] = "No exiten comentarios";
             return ($comentario) ? $comentario : $error;
           }//else{
-            //return $this->modelo->getComentarios();
+            //return $this->model->getComentarios();
           //}
       break;
       //  case 'DELETE':

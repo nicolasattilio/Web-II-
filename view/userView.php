@@ -1,29 +1,21 @@
 <?php
-  require_once('libs/Smarty.class.php');
-
-  class userView{
-    private $smarty;
-
-    public function __construct(){
-      $this->smarty = new Smarty;
-    }
-    public function home(){
-      $this->smarty->display('templates/index.tpl');
-    }
-
-    public function mostrar_inscripcion(){
-      $this->smarty->display('templates/inscripciones.tpl');
-    }
-
-    public function mostrar_imagenes_comentarios($partido,$imagenes){
-      $this->smarty->assign('imagenes',$imagenes);
-      $this->smarty->assign('partido',$partido);
-      $this->smarty->display('templates/imagenesComentarios.tpl');
-    }
-
-    public function mostrar_home(){
-      $this->smarty->display('templates/navegador.tpl');
-    }
-
+include_once(dirname(__DIR__). "/libs/Smarty.class.php");
+class userView
+{
+  private $smarty;
+  function __construct()
+  {
+    $this->smarty = new Smarty();
   }
-?>
+  function mostrar(){
+    $this->smarty->display('ingreso.tpl');
+  }
+  function mostrarRegistro () {
+    $this->smarty->display('registro.tpl');
+  }
+  function usuarioRegistrado($usuario) {
+    $this->smarty->assign('usuario',$usuario);
+    $this->smarty->display('usuarioRegistrado.tpl');
+  }
+}
+ ?>

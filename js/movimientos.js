@@ -55,6 +55,52 @@ $(document).ready(function () {
       return false;
     });
 
+    $(".salir").on("click",function () {
+      $.ajax({
+        url:"index.php?mode=salir",
+        dataType: 'HTML',
+        method: 'GET',
+        success: function(data){
+          $('.pantalla').html(data);
+          actualizarEventos();
+        }
+      });
+      event.preventDefault();
+      return false;
+    });
+
+    $(".ingresoUsuario").on("submit",function () {
+      var formData = new FormData(this);
+      $.ajax({
+        url:"index.php?mode=ingresar",
+        data: formData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        method: 'POST',
+        success: function(data){
+          $('.pantalla').html(data);
+          actualizarEventos();
+        }
+      });
+      event.preventDefault();
+      return false;
+    });
+
+    $(".ingresar").on("click",function () {
+      $.ajax({
+        url:"index.php?mode=ingresar",
+        dataType: 'HTML',
+        method: 'GET',
+        success: function(data){
+          $('.pantalla').html(data);
+          actualizarEventos()
+        }
+      });
+      event.preventDefault();
+      return false;
+    });
+
     $(".addPartido").on("click",function () {
       $.ajax({
         url:"index.php?mode=mostrarAgregarPartido",
@@ -152,6 +198,8 @@ $(document).ready(function () {
       return false;
     });
 
+
+
     $(".partidos").on("click",function () {
       $.ajax({
         url:"index.php?mode=mostrarPartido",
@@ -184,6 +232,31 @@ $(document).ready(function () {
       return false;
     });
 
+    function getComentarios(partidoid){
+      $.ajax({
+        url:"api/comentario" + partidoid,
+        dataType:'HTML',
+        method: 'GET',
+        success: function(data){
+        crearComentarios(partidoid);
+        }
+      });
+      event.preventDefault();
+      return false;
+    }
+    var templateComentario;
+
+    function crearComentarios (data){
+        var rendered = Mustache.render(templateComentario,{comentarios: data});
+        $('.comentarios').html(rendered);
+      }
+
+    $.ajax({ url: 'js/templates/comentario.mst',
+    success: function(templateReceived) {
+      templateComentario = templateReceived;
+    }
+  });
+
     $(".verImagenesComentarios").on("click",function(){
       var partidoid = $(this).data("partidoid");
       $.ajax({
@@ -193,6 +266,7 @@ $(document).ready(function () {
         success: function(data){
           $('.pantalla').html(data);
           actualizarEventos();
+          getComentarios(partidoid);
         }
       });
       event.preventDefault();
