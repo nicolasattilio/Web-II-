@@ -1,5 +1,4 @@
 <?php
-require('view/equipoView.php');
 require('view/partidoView.php');
 require('models/teamsModels.php');
 require('models/partidoModel.php');

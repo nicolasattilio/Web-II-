@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-11-21 14:16:05
+/* Smarty version 3.1.30, created on 2016-11-21 18:12:01
   from "C:\xampp\htdocs\Web-II-\templates\partidos.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5832f3950d08f7_00780513',
+  'unifunc' => 'content_58332ae16eb804_61843002',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '11dd5f042c07428e3a0d0d19a0698886dd1e0274' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Web-II-\\templates\\partidos.tpl',
-      1 => 1479734059,
+      1 => 1479748317,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5832f3950d08f7_00780513 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58332ae16eb804_61843002 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="container" >
   <form id="formulario" action="" method="POST" enctype="multipart/form-data">
@@ -74,7 +74,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['partido']->value) {
 " class="img-circle" style="width: 40px;"></td>
   <td><?php echo $_smarty_tpl->tpl_vars['partido']->value['fecha'];?>
 PM</td>
-  <td><a class="verImagenesComentarios" href="">Ver mas..</a></td>
+  <td><button type="button" class="verImagenesComentarios btn btn-success" data-partidoid="<?php echo $_smarty_tpl->tpl_vars['partido']->value['id_partido'];?>
+">Ver mas..</button></td>
 </tr>
 <?php
 }

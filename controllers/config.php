@@ -20,6 +20,9 @@ class config{
   public static $mode_mostrarInscripcionPartido ='mostrarAgregarPartido';
   public static $mode_agregarPartido = 'insertPartido';
   public static $mode_adminPartidos = 'administradorPartidos';
+  //----<Usuarios>----
+  public static $mode_comentariosEImagenes = 'imagen_coment';
+  public static $mode_imagen='imagen';
 }
 
 ?>

@@ -22,6 +22,14 @@ switch (isset($_GET[config::$mode]) ? $_GET[config::$mode] : config::$mode_defau
       $userController->mostrarformulario();
     break;
 
+    case config::$mode_comentariosEImagenes:
+      $userController->verImagenesYComentarios();
+    break;
+
+    case config::$mode_imagen:
+      $userController->uploadImagen();
+    break;
+
     //----<Datos Equipo>-----
 
 
