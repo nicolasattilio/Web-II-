@@ -20,18 +20,18 @@ class futappController{
       $this->user["nivel"]=1;
     }
 
-}
-public function home(){
+  }
+  public function home(){
     $this->futappView->home($this->user);
-}
-public function mostrarhome(){
+  }
+  public function mostrarhome(){
     $this->futappView->mostrar_home();
-}
+  }
 
-public function mostrarformulario(){
+  public function mostrarformulario(){
     $this->futappView->mostrar_inscripcion();
-}
-function getImagenesVerificadas($imagenes){
+  }
+  function getImagenesVerificadas($imagenes){
     $imagenesVerificadas = [];
     for ($i=0; $i < count($imagenes['size']); $i++) {
       if($imagenes['size'][$i]>0 && ($imagenes['type'][$i]=="image/jpeg" || $imagenes['type'][$i]=="image/png")){
@@ -45,27 +45,30 @@ function getImagenesVerificadas($imagenes){
   }
 
 
-public function uploadImagen(){
-  $id=$_POST['id'];
-  $imagenes = $_FILES['picture'];
-    if (isset($imagenes)){
-    $imagenesVerificadas=$this->getImagenesVerificadas($imagenes);
-    $this->futappModel->cargarimagen($id,$imagenesVerificadas);
-    $imagenes=$this->futappModel->verImagenes($id);
-    $this->futappView->mostrar_imagenes_comentarios($id,$imagenes);
-  }else{
-    $imagenes=$this->futappModel->verImagenes($id);
-    $this->futappView->mostrar_imagenes_comentarios($id,$imagenes);
+  public function uploadImagen(){
+    if (isset($_GET['id']) && isset($_FILES['picture'])){
+      $id=$_POST['id'];
+      $imagenes = $_FILES['picture'];
+      if (isset($imagenes)){
+        $imagenesVerificadas=$this->getImagenesVerificadas($imagenes);
+        $this->futappModel->cargarimagen($id,$imagenesVerificadas);
+        $imagenes=$this->futappModel->verImagenes($id);
+        $this->futappView->mostrar_imagenes_comentarios($id,$imagenes);
+      }else{
+        $imagenes=$this->futappModel->verImagenes($id);
+        $this->futappView->mostrar_imagenes_comentarios($id,$imagenes);
+      }
+    }
   }
-}
 
-public function verImagenesYComentarios(){
-  $id=$_GET['id'];
-  $imagenes=$this->futappModel->verImagenes($id);
-  $partido = $this->partidoModel->getPartido($id);
-  $this->futappView->mostrar_imagenes_comentarios($partido,$imagenes,$this->user);
-
-}
+  public function verImagenesYComentarios(){
+    if (isset($_GET['id'])){
+      $id=$_GET['id'];
+      $imagenes=$this->futappModel->verImagenes($id);
+      $partido = $this->partidoModel->getPartido($id);
+      $this->futappView->mostrar_imagenes_comentarios($partido,$imagenes,$this->user);
+    }
+  }
 }
 
 

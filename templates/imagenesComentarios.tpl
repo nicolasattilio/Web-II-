@@ -1,4 +1,5 @@
 <div class="container">
+  {if $user['nivel']==2}
   <div class="row">
     <form id="cargarImagen" action="" method="POST" enctype="multipart/form-data">
       <input value="{$partido['id_partido']}" type="hidden" name="id">
@@ -6,13 +7,16 @@
       <input class="btn btn-success" type="submit" value="Agregar">
     </form>
   </div>
+  {/if}
   <div class="row">
   {foreach from=$imagenes item=imagen}
   <div class="col-xs-6 col-md-3">
     <a href="{$imagen['picture']}" class="thumbnail">
       <img src="{$imagen['picture']}"/>
     </a>
+    {if $user['nivel']==2}
     <button type="button" class="borrarImagen btn btn-warning" data-imagenid="{$imagen['id_imagen']}">Borrar Imagen</button></td>
+    {/if}
   </div>
   {/foreach}
   </div>

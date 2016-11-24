@@ -52,17 +52,21 @@ class teamsController{
 
 
   public function editTeam(){
+    if (isset($_GET['id'])){
     $id=$_GET['id'];
     $team = $this->modelTeams->getTeam($id);
     $this->viewTeams->mostrar_inscripcion_edit($team);
+    }
 }
 
   public function deleteTeam(){
+      if (isset($_GET['id'])){
       $id=$_GET['id'];
       $team = $this->modelTeams->getTeam($id);
       $team = $this->modelTeams->deleteTeam($team);
       $teams = $this->modelTeams->getTeams();
       $this->viewTeams->mostrar_ins_admin($teams);
+    }
   }
 
 

@@ -12,6 +12,7 @@
     <nav class="navbar navbar-inverse">
       <div class="container">
         <div class="navbar-header">
+
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
                     <span class="sr-only">Menu</span>
                 </button>
@@ -19,14 +20,22 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar2">
                 <ul class="nav navbar-nav navbar-right ">
-                   {if $user['nivel']==1}
+                    {if $user['nivel']>1}
+                    <li><a>Usuario : {$user['nick']}</a></li>
+                    {/if}
+                    {if $user['nivel']==1}
                     <li><a href="" class="ingresar">Ingresar</a></li>
                     {else}
                     <li><a href="" class="salir">Salir</a></li>
                   {/if}
                     <li><a href="" class="partidos">Partidos</a></li>
                     <li><a href="" class="equipos">Equipos</a></li>
+                    {if $user['nivel']>1}
                     <li><a href="" class="inscripcion">Inscripcion</a></li>
+                    {/if}
+                    {if $user['nivel']>1}
+                    <li><a href="" class="inscripcion">Inscripcion</a></li>
+                    {/if}
                     {if $user['nivel']==2}
                     <li><li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administracion <span class="caret"></span>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">

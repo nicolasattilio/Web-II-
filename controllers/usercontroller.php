@@ -86,6 +86,22 @@ class UserController
       }
     }
   }
+  public function eliminarUsuario(){
+    if (isset($_GET["id"])){
+      $id_user=$_GET["id"];
+      $usuario=$this->userModel->deleteUsuario($id_user);
+      $usuarios=$this->userModel->getUsuarios();
+      $this->userView->mostrar_admin_usuarios($usuarios);
+    }
+  }
+  public function cambiarNivel(){
+    if (isset($_GET["id"])){
+      $id_user=$_GET["id"];
+    $usuario=$this->userModel->cambiarNivel($id_user);
+    $usuarios=$this->userModel->getUsuarios();
+    $this->userView->mostrar_admin_usuarios($usuarios);
+  }
+}
 
   public function adminUsuarios(){
     $usuarios=$this->userModel->getUsuarios();

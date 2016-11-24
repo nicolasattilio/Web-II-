@@ -188,6 +188,32 @@ $(document).ready(function () {
       });
     });
 
+    $(".cambiarNivel").on("click",function(){
+      var userid = $(this).data("userid");
+      $.ajax({
+        url:"index.php?mode=cambiarNivel&id=" + userid,
+        dataType:'HTML',
+        method: 'GET',
+        success: function(data){
+          $('.pantalla').html(data);
+          actualizarEventos();
+        }
+      });
+    });
+
+    $(".deleteUsuario").on("click",function(){
+      var userid = $(this).data("userid");
+      $.ajax({
+        url:"index.php?mode=deleteUsuario&id=" + userid,
+        dataType:'HTML',
+        method: 'GET',
+        success: function(data){
+          $('.pantalla').html(data);
+          actualizarEventos();
+        }
+      });
+    });
+
     $(".deleteTeam").on("click",function(){
       var teamId = $(this).data("teamid");
       $.ajax({
@@ -323,7 +349,7 @@ $(document).ready(function () {
       event.preventDefault();
       return false;
     });
-  
+
 
     function getComentarios(partidoid){
     $.get('api/comentarios/'+partidoid,function(data){

@@ -28,6 +28,8 @@ class config{
   public static $mode_registroUsuario='registrousuario';
   public static $mode_nuevoUsuario='nuevoUsuario';
   public static $mode_adminUsuario='adminUsuarios';
+  public static $mode_cambiarNivel='cambiarNivel';
+  public static $mode_eliminarUsuario='deleteUsuario';
 }
 
 ?>

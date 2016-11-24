@@ -11,5 +11,7 @@
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
   </form>
-  <strong>No tienes una cuenta?</strong><button type="button" name="button" id="registro">Registrarse</button>
+  <br><br>
+  <h3>No tienes una cuenta? <span class="label label-default"></span></h3>
+  <button class="btn btn-lg btn-success btn-block" type="button" name="button" id="registro">Registrarte</button>
 </div>
