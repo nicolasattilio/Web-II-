@@ -25,6 +25,8 @@ class config{
   public static $mode_salir='salir';
   public static $mode_comentariosEImagenes = 'imagen_coment';
   public static $mode_imagen='imagen';
+  public static $mode_registroUsuario='registrousuario';
+  public static $mode_nuevoUsuario='nuevoUsuario';
 }
 
 ?>

@@ -79,13 +79,42 @@ $(document).ready(function () {
         processData: false,
         method: 'POST',
         success: function(data){
-          $('.pantalla').html(data);
-          actualizarEventos();
+          $('body').html(data);
         }
       });
       event.preventDefault();
       return false;
     });
+
+    $("#ingresarComentario").on("submit",function () {
+      var formData = new FormData(this);
+      $.ajax({
+        url:"api/comentarios",
+        data: formData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        method: 'POST',
+        success: function(data){
+        }
+      });
+      event.preventDefault();
+      return false;
+    });
+
+    $(".salir").on("click",function () {
+      $.ajax({
+        url:"index.php?mode=salir",
+        dataType: 'HTML',
+        method: 'GET',
+        success: function(data){
+            $('body').html(data);
+        }
+      });
+      event.preventDefault();
+      return false;
+    });
+
 
     $(".ingresar").on("click",function () {
       $.ajax({
@@ -114,6 +143,8 @@ $(document).ready(function () {
       event.preventDefault();
       return false;
     });
+
+
 
 
     $(".inscripcion").on("click",function () {
@@ -232,30 +263,35 @@ $(document).ready(function () {
       return false;
     });
 
-    function getComentarios(partidoid){
+    $(".nuevoUsuario").on("submit",function(){
+      var formData = new FormData(this);
       $.ajax({
-        url:"api/comentarios" + partidoid,
-        dataType:'HTML',
-        method: 'GET',
+        url:"index.php?mode=nuevoUsuario",
+        data: formData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        method: 'POST',
         success: function(data){
-        crearComentarios(partidoid);
+          $('.pantalla').html(data);
+          actualizarEventos();
         }
       });
       event.preventDefault();
       return false;
-    }
-    var templateComentario;
+    });
 
-    function crearComentarios (data){
-        var rendered = Mustache.render(templateComentario,{comentarios: data});
-        $('.comentarios').html(rendered);
-      }
 
-    $.ajax({ url: 'js/templates/comentario.mst',
-    success: function(templateReceived) {
-      templateComentario = templateReceived;
-    }
-  });
+
+
+      var temporizador;
+    $(".navbar").on("click",StopTemporizador);
+
+     function StopTemporizador() {
+       clearInterval(temporizador);
+     }
+
+
 
     $(".verImagenesComentarios").on("click",function(){
       var partidoid = $(this).data("partidoid");
@@ -267,11 +303,45 @@ $(document).ready(function () {
           $('.pantalla').html(data);
           actualizarEventos();
           getComentarios(partidoid);
+          temporizador = setInterval(function() {getComentarios(partidoid)}, 2000);
         }
       });
       event.preventDefault();
       return false;
     });
+
+    function getComentarios(partidoid){
+    $.get('api/comentarios/'+partidoid,function(data){
+      crearComentarios(data);
+    })
+      }
+
+    $("#registro").on("click",function(){
+        $.ajax({
+          url:"index.php?mode=registrousuario",
+          dataType:'HTML',
+          method: 'GET',
+          success: function(data){
+            $('.pantalla').html(data);
+            actualizarEventos();
+          }
+        });
+      });
+
+
+
+    var templateComentario;
+    $.ajax({url:'js/templates/comentario.mst',
+    success: function(templateReceived) {
+      templateComentario = templateReceived;
+    }
+  });
+
+
+    function crearComentarios (data){
+        var rendered = Mustache.render(templateComentario,{comentarios: data});
+        $('.comentarios').html(rendered);
+      }
 
     $(".home").on("click",function(){
       $.ajax({

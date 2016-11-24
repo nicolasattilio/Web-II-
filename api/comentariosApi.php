@@ -29,22 +29,19 @@ class ComentariosApi extends Api {
       //   return ($filasAfectadas == 1) ? $success : $error;
       // }
       // break;
-      // case 'POST':
-      // if(count($argumentos)==0){
-      //   if(isset($_POST['id_paquete']) && isset($_POST['email']) && isset($_POST['comentario'])) {
-      //     $id_paquete = $_POST['id_paquete'];
-      //     $usuario = $_POST['email'];
-      //     $comentario = $_POST['comentario'];
-      //       if(isset($_POST['rating'])) {
-      //         $rating = $_POST['rating'];
-      //       }
-      //       else $rating = 0;
-      //       $error['Error'] = "El comentario no se creo";
-      //       $id_comentario = $this->modelo->crearComentario($id_paquete,$usuario,$comentario,$rating);
-      //       return ($id_comentario > 0) ? $this->modelo->getComentario($id_comentario) : $error;
-      //   }
-      // }
-      // break;
+      case 'POST':
+      if(count($argumentos)==0){
+        if(isset($_POST['id_partido']) && isset($_POST['id_user']) && isset($_POST['comentario']) && isset($_POST['puntaje'])) {
+          $id_partido = $_POST['id_partido'];
+          $usuario = $_POST['id_user'];
+          $comentario = $_POST['comentario'];
+            $puntaje = $_POST['puntaje'];
+            $error['Error'] = "El comentario no se creo";
+            $id_comentario = $this->model->crearComentario($id_partido,$usuario,$comentario,$puntaje);
+            return ($id_comentario > 0) ? $this->model->getComentario($id_comentario) : $error;
+        }
+       }
+       break;
       default:
       return "Only accepts GET";
       break;

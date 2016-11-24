@@ -63,7 +63,7 @@ public function verImagenesYComentarios(){
   $id=$_GET['id'];
   $imagenes=$this->futappModel->verImagenes($id);
   $partido = $this->partidoModel->getPartido($id);
-  $this->futappView->mostrar_imagenes_comentarios($partido,$imagenes);
+  $this->futappView->mostrar_imagenes_comentarios($partido,$imagenes,$this->user);
 
 }
 }

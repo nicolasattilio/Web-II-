@@ -24,7 +24,15 @@ switch (isset($_GET[config::$mode]) ? $_GET[config::$mode] : config::$mode_defau
       $userController->login();
     break;
 
-    case config::$mode_ingresar:
+    case config::$mode_nuevoUsuario:
+      $userController->nuevoUsuario();
+    break;
+
+    case config::$mode_registroUsuario:
+      $userController->mostrarRegistro();
+    break;
+
+    case config::$mode_salir:
       $userController->logout();
     break;
 

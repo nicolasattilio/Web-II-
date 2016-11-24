@@ -21,6 +21,14 @@ function getComentariosPorPartido($id_partido){
   }
   return $comentarios;
 }
+
+  function getComentario($id_comentario){
+    $sentencia = $this->db->prepare( "select * from comentario where id_comentario=?");
+    $sentencia->execute(array($id_comentario));
+    $comentario = $sentencia->fetch(PDO::FETCH_ASSOC);
+    return $comentario;
+  }
+
 function getComentarios(){
   $comentarios = $this->db->prepare("SELECT * from comentario");
   $comentarios->execute();
@@ -31,9 +39,9 @@ function eliminarComentario($id_comentario){
   $sentencia->execute(array($id_comentario));
 }
 
-function crearComentario($fk_user,$comentario,$puntaje,$id_partido){
-  $sentencia = $this->db->prepare("INSERT INTO comentario(fk_user,comentario,puntaje) values(?,?,?) WHERE fk_partido=?");
-    $sentencia->execute(array($fk_user,$comentario,$puntaje,$id_partido));
+function crearComentario($id_partido,$usuario,$comentario,$puntaje){
+  $sentencia = $this->db->prepare("INSERT INTO comentario(fk_partido,fk_user,comentario,puntaje) values(?,?,?,?)");
+    $sentencia->execute(array($id_partido,$usuario,$comentario,$puntaje));
     return $this->db->lastInsertId();
 }
 }

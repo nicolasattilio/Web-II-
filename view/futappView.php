@@ -16,9 +16,10 @@
       $this->smarty->display('templates/inscripciones.tpl');
     }
 
-    public function mostrar_imagenes_comentarios($partido,$imagenes){
+    public function mostrar_imagenes_comentarios($partido,$imagenes,$user){
       $this->smarty->assign('imagenes',$imagenes);
       $this->smarty->assign('partido',$partido);
+      $this->smarty->assign('user',$user);
       $this->smarty->display('templates/imagenesComentarios.tpl');
     }
 

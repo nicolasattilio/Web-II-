@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2016 a las 03:00:14
+-- Tiempo de generación: 24-11-2016 a las 05:27:40
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 7.0.8
 
@@ -39,13 +39,12 @@ CREATE TABLE `comentario` (
 --
 
 INSERT INTO `comentario` (`id_comentario`, `fk_user`, `fk_partido`, `comentario`, `puntaje`) VALUES
-(1, 2, 7, 'Hola', 4),
-(2, 2, 7, 'Marcelooo', 5),
-(3, 2, 7, 'Anda bien', 3),
-(4, 2, 7, 'la puta que vale estar vivo!', 5),
-(5, 2, 7, 'papapapapa', 1),
-(6, 2, 7, 'cholulaje', 3),
-(7, 2, 7, 'sadas', 1);
+(1, 1, 7, 'Hola', 4),
+(2, 1, 7, 'Comentario', 4),
+(3, 1, 7, 'La papa', 2),
+(4, 1, 7, 'actualiza', 5),
+(14, 1, 7, 'Holaaaaaaa sueñooo', 5),
+(15, 4, 9, 'Que hacelga?', 5);
 
 -- --------------------------------------------------------
 
@@ -145,9 +144,9 @@ INSERT INTO `team` (`id`, `equipo`, `jugador_1`, `jugador_2`, `jugador_3`, `juga
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `nick` varchar(55) COLLATE utf8_spanish_ci NOT NULL,
-  `pass` varchar(55) COLLATE utf8_spanish_ci NOT NULL,
+  `pass` varchar(2000) COLLATE utf8_spanish_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
-  `nivel` int(11) NOT NULL
+  `nivel` int(11) NOT NULL DEFAULT '3'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -155,7 +154,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nick`, `pass`, `email`, `nivel`) VALUES
-(1, 'nico', '$2y$10$IDgKzerp0QbBoekm3XMxG.7E9mRmco1YClUSynvlg/D1oiG/', 'nico@futapp.com', 2);
+(1, 'nico', '$2y$10$/nRrn8cirTu3NulES33AyuCgE3lcuQCnGzMfalDWNaXYodC9bJQT2', 'nico@futapp.com', 2),
+(3, 'David', '$2y$10$zWiFmJy6/bE4SHMAXPHEJeVMlkkXcPJFyyL5qTCRtQavf6avbO6l6', 'david@futapp.com', 3),
+(4, 'Antonela', '$2y$10$KLli1d4oNkfmPqmZkR5eAucypwbsBExoivHSnCJxzMr2Bjr4B/Lk6', 'anto@futapp.com', 3);
 
 --
 -- Índices para tablas volcadas
@@ -205,7 +206,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
@@ -225,7 +226,7 @@ ALTER TABLE `team`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

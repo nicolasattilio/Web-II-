@@ -18,7 +18,7 @@ class UserController
     else {
       $user = $_POST['usuario'];
       $pass = $_POST['password'];
-      $hash = $this->userModel->getUser($user)['pass'];
+      $hash = $this->userModel->getUserEmail($user)['pass'];
     if(password_verify($pass,$hash))  {
         session_start();
         $_SESSION['USER'] = $user;
@@ -46,8 +46,16 @@ class UserController
     }
     return true;
   }
+
+  public function check(){
+    if(!isset($_SESSION['USER'])){
+      return false;
+    }
+    return true;
+  }
+
   public function getUser () {
-    return $this->userModel->getUser($_SESSION['USER']);
+    return $this->userModel->getUserEmail($_SESSION['USER']);
   }
   public function getRol(){
     session_start();

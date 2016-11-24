@@ -11,11 +11,11 @@ class userView
     $this->smarty->display('ingreso.tpl');
   }
   function mostrarRegistro () {
-    $this->smarty->display('registro.tpl');
+    $this->smarty->display('registroUser.tpl');
   }
-  function usuarioRegistrado($usuario) {
-    $this->smarty->assign('usuario',$usuario);
-    $this->smarty->display('usuarioRegistrado.tpl');
+  function usuarioRegistrado($user) {
+    $this->smarty->assign('user',$user);
+    $this->smarty->display('userRegistrado.tpl');
   }
 }
  ?>
