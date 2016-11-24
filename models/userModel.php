@@ -17,6 +17,11 @@ class userModel extends modelDB
      $sentencia = $this->db->prepare("INSERT INTO user(nick,email,pass) VALUES(:nombre,:email,:password)");
      $sentencia->execute($nuevoUsuario);
  }
+    function getUsuarios(){
+      $sentencia =$this->db->prepare("SELECT * FROM user");
+      $sentencia->execute();
+      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 
 

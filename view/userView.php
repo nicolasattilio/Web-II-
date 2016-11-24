@@ -17,5 +17,10 @@ class userView
     $this->smarty->assign('user',$user);
     $this->smarty->display('userRegistrado.tpl');
   }
+
+  function mostrar_admin_usuarios($usuarios) {
+    $this->smarty->assign('usuarios',$usuarios);
+    $this->smarty->display('adminUsuarios.tpl');
+  }
 }
  ?>

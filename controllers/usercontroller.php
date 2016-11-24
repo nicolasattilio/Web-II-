@@ -86,5 +86,10 @@ class UserController
       }
     }
   }
+
+  public function adminUsuarios(){
+    $usuarios=$this->userModel->getUsuarios();
+    $this->userView->mostrar_admin_usuarios($usuarios);
+  }
 }
 ?>

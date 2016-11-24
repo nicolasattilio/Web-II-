@@ -1,12 +1,14 @@
 <?php
-include_once('models/modelDB.php');
+require_once('modelDB.php');
+require_once('teamsModels.php');
 
 class partidoModel extends modelDB{
   private $modelTeams;
 
   function __construct(){
-    $this->modelTeams = new teamsModel();
     parent::__construct();
+    $this->modelTeams = new teamsModel();
+
   }
 
   function getPartidos()  {

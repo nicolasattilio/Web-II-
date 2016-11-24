@@ -20,10 +20,20 @@ switch (isset($_GET[config::$mode]) ? $_GET[config::$mode] : config::$mode_defau
       $futappController->mostrarhome();
     break;
 
+    case config::$mode_eliminarUsuario:
+      $userController->eliminarUsuario();
+    break;
+    case config::$mode_cambiarNivel:
+      $userController->cambiarNivel();
+    break;
+
     case config::$mode_ingresar:
       $userController->login();
     break;
 
+    case config::$mode_adminUsuario:
+      $userController->adminUsuarios();
+    break;
     case config::$mode_nuevoUsuario:
       $userController->nuevoUsuario();
     break;

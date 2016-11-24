@@ -1,5 +1,5 @@
 <?php
-include_once('models/modelDB.php');
+require_once('modelDB.php');
 
 class teamsModel extends modelDB{
 

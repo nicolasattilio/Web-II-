@@ -1,14 +1,17 @@
 <?php
 require_once ("modelDB.php");
 require_once("userModel.php");
+require_once("partidoModel.php");
 
 
 class ModelComentarios extends modelDB{
   private $userModel;
+  private $partidoModel;
 
   function __construct(){
     parent::__construct();
     $this->userModel= new userModel();
+    $this->partidoModel=new partidoModel();
 
   }
 
@@ -30,10 +33,18 @@ function getComentariosPorPartido($id_partido){
   }
 
 function getComentarios(){
-  $comentarios = $this->db->prepare("SELECT * from comentario");
-  $comentarios->execute();
-  return $comentarios->fetchAll(PDO::FETCH_ASSOC);
+  $sentencia = $this->db->prepare("SELECT * from comentario");
+  $sentencia->execute();
+  $comentarios = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  foreach ($comentarios as $key => $comentario) {
+    $comentarios[$key]["email"]=$this->userModel->getUser($comentario["fk_user"])["email"];
+    $comentarios[$key]["partido"]=$this->partidoModel->getPartido($comentario["fk_partido"])["id_partido"];
+  }
+  return $comentarios;
 }
+
+
+
 function eliminarComentario($id_comentario){
   $sentencia = $this->db->prepare("DELETE from comentario WHERE id_comentario=?");
   $sentencia->execute(array($id_comentario));

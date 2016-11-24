@@ -32,8 +32,8 @@
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
                         <li><a href="" class="adminEquipos">Equipos</a></li>
                         <li><a href="" class="adminPartidos">Partidos</a></li>
-                        <li><a href="" class="partidos">Comentarios</a></li>
-                        <li><a href="" class="partidos">Usuarios</a></li>
+                        <li><a href="" class="adminComentarios">Comentarios</a></li>
+                        <li><a href="" class="adminUsuarios">Usuarios</a></li>
                       </ul>
                     </li>
                     {/if}

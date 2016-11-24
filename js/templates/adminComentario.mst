@@ -1,0 +1,18 @@
+<div class="container" >
+<table class="table">
+  <tr>
+    <th>Email</th>
+    <th>Partido</th>
+    <th>Comentario</th>
+    <th></th>
+  </tr>
+  {{#comentarios}}
+  <tr>
+  <td>{{email}}</td>
+  <td>{{partido}}</td>
+  <td>{{comentario}}</td>
+  <td><button type="button" class="deleteComentario btn btn-warning" data-comentarioid="{{id_comentario}}">Eliminar</button></td>
+  </tr>
+{{/comentarios}}
+</table>
+</div>

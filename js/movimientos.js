@@ -310,6 +310,21 @@ $(document).ready(function () {
       return false;
     });
 
+    $(".adminUsuarios").on("click",function () {
+      $.ajax({
+        url:"index.php?mode=adminUsuarios",
+        dataType: 'HTML',
+        method: 'GET',
+        success: function(data){
+          $('.pantalla').html(data);
+          actualizarEventos();
+        }
+      });
+      event.preventDefault();
+      return false;
+    });
+  
+
     function getComentarios(partidoid){
     $.get('api/comentarios/'+partidoid,function(data){
       crearComentarios(data);
@@ -328,6 +343,24 @@ $(document).ready(function () {
         });
       });
 
+      function getTodosComentarios(){
+      $.get('api/comentarios',function(data){
+        crearAdminComentarios(data);
+      })
+        }
+
+        function crearAdminComentarios (data){
+            var rendered = Mustache.render(templateAdminComentario,{comentarios: data});
+            $('.pantalla').html(rendered);
+          }
+
+          var templateAdminComentario;
+          $.ajax({url:'js/templates/adminComentario.mst',
+          success: function(templateReceived) {
+            templateAdminComentario = templateReceived;
+          }
+        });
+
 
 
     var templateComentario;
@@ -343,6 +376,22 @@ $(document).ready(function () {
         $('.comentarios').html(rendered);
       }
 
+
+      $(document).on('click','.deleteComentario', function () {
+        var comentarioid = $(this).data("comentarioid");
+        $.ajax ({
+          url: "api/comentarios/"+comentarioid,
+          method:"DELETE",
+          contentType: "application/json; charset=utf-8",
+          success:function (data){
+              getTodosComentarios();
+          },
+          error:function(jqxml, status, errorThrown){
+            console.log(errorThrown);
+          }
+        });
+      });
+
     $(".home").on("click",function(){
       $.ajax({
         url:"index.php?home",
@@ -353,6 +402,19 @@ $(document).ready(function () {
           actualizarEventos();
         }
       });
+    });
+
+    $(".adminComentarios").on("click",function () {
+      $.ajax({
+        url:"api/comentarios",
+        dataType: 'HTML',
+        method: 'GET',
+        success: function(data){
+        getTodosComentarios();
+        }
+      });
+      event.preventDefault();
+      return false;
     });
 
     $(".adminEquipos").on("click",function () {

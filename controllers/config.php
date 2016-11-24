@@ -27,6 +27,7 @@ class config{
   public static $mode_imagen='imagen';
   public static $mode_registroUsuario='registrousuario';
   public static $mode_nuevoUsuario='nuevoUsuario';
+  public static $mode_adminUsuario='adminUsuarios';
 }
 
 ?>
