@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2016 a las 20:50:09
--- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 5.6.24
+-- Tiempo de generación: 24-11-2016 a las 03:00:14
+-- Versión del servidor: 10.1.13-MariaDB
+-- Versión de PHP: 7.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -99,6 +99,15 @@ CREATE TABLE `rango` (
   `autoridad` varchar(55) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `rango`
+--
+
+INSERT INTO `rango` (`nivel`, `autoridad`) VALUES
+(1, 'invitado'),
+(2, 'administrador'),
+(3, 'visitante');
+
 -- --------------------------------------------------------
 
 --
@@ -137,6 +146,7 @@ CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `nick` varchar(55) COLLATE utf8_spanish_ci NOT NULL,
   `pass` varchar(55) COLLATE utf8_spanish_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `nivel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -144,8 +154,8 @@ CREATE TABLE `user` (
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`id_user`, `nick`, `pass`, `nivel`) VALUES
-(2, 'Nico', '1234', 2);
+INSERT INTO `user` (`id_user`, `nick`, `pass`, `email`, `nivel`) VALUES
+(1, 'nico', '$2y$10$IDgKzerp0QbBoekm3XMxG.7E9mRmco1YClUSynvlg/D1oiG/', 'nico@futapp.com', 2);
 
 --
 -- Índices para tablas volcadas

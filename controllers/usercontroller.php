@@ -12,7 +12,6 @@ class UserController
     $this->userView = new userView();
   }
 
-
   public function login(){
     if(!isset($_POST['usuario']) && !isset($_POST["password"]))
     $this->userView->mostrar([]);
@@ -20,9 +19,6 @@ class UserController
       $user = $_POST['usuario'];
       $pass = $_POST['password'];
       $hash = $this->userModel->getUser($user)['pass'];
-      echo $user;
-      echo $pass;
-      echo $hash;
     if(password_verify($pass,$hash))  {
         session_start();
         $_SESSION['USER'] = $user;

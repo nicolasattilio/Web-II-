@@ -10,16 +10,16 @@ class ComentariosApi extends Api {
     parent::__construct($request);
     $this->model = new ModelComentarios();
   }
-  protected function comentario($argumentos){
+  protected function comentarios($argumentos){
     switch ($this->method) {
       case 'GET':
         if(count($argumentos)>0){
             $comentario = $this->model->getComentariosPorPartido($argumentos[0]);
             $error['Error'] = "No exiten comentarios";
             return ($comentario) ? $comentario : $error;
-          }//else{
-            //return $this->model->getComentarios();
-          //}
+          }else{
+            return $this->model->getComentarios();
+          }
       break;
       //  case 'DELETE':
       //   if(count($argumentos)>0){

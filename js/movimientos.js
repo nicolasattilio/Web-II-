@@ -234,7 +234,7 @@ $(document).ready(function () {
 
     function getComentarios(partidoid){
       $.ajax({
-        url:"api/comentario" + partidoid,
+        url:"api/comentarios" + partidoid,
         dataType:'HTML',
         method: 'GET',
         success: function(data){
