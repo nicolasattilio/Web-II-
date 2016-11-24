@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2016 a las 05:27:40
+-- Tiempo de generación: 24-11-2016 a las 07:45:25
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 7.0.8
 
@@ -39,12 +39,10 @@ CREATE TABLE `comentario` (
 --
 
 INSERT INTO `comentario` (`id_comentario`, `fk_user`, `fk_partido`, `comentario`, `puntaje`) VALUES
-(1, 1, 7, 'Hola', 4),
-(2, 1, 7, 'Comentario', 4),
 (3, 1, 7, 'La papa', 2),
 (4, 1, 7, 'actualiza', 5),
 (14, 1, 7, 'Holaaaaaaa sueñooo', 5),
-(15, 4, 9, 'Que hacelga?', 5);
+(17, 5, 7, 'Quedo buena la pagina nico Guiño guiño', 5);
 
 -- --------------------------------------------------------
 
@@ -155,8 +153,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `nick`, `pass`, `email`, `nivel`) VALUES
 (1, 'nico', '$2y$10$/nRrn8cirTu3NulES33AyuCgE3lcuQCnGzMfalDWNaXYodC9bJQT2', 'nico@futapp.com', 2),
-(3, 'David', '$2y$10$zWiFmJy6/bE4SHMAXPHEJeVMlkkXcPJFyyL5qTCRtQavf6avbO6l6', 'david@futapp.com', 3),
-(4, 'Antonela', '$2y$10$KLli1d4oNkfmPqmZkR5eAucypwbsBExoivHSnCJxzMr2Bjr4B/Lk6', 'anto@futapp.com', 3);
+(3, 'David', '$2y$10$zWiFmJy6/bE4SHMAXPHEJeVMlkkXcPJFyyL5qTCRtQavf6avbO6l6', 'david@futapp.com', 2),
+(5, 'Andrea', '$2y$10$xRVFZ/Eb1KgoP1GmQ2R4TurkH342UikCJHRjCV2bG0jsIwTaExpju', 'andrea@futapp.com', 3);
 
 --
 -- Índices para tablas volcadas
@@ -206,7 +204,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
@@ -226,7 +224,7 @@ ALTER TABLE `team`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
